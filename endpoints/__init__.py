@@ -2,7 +2,7 @@
 
 from flask_restx import Api
 from endpoints.articles.routes import api_articles
-from endpoints.categories import api_categories
+from endpoints.categories.routes import api_categories
 
 
 api = Api(
