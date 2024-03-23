@@ -34,3 +34,12 @@ def delete_article(article_id: int) -> None:
 
     db.session.delete(article)
     db.session.commit()
+
+
+def edit_article(article_id: int, **args: dict) -> None:
+    """ Обновляет информацию о статье """
+
+    article = get_article(article_id)
+    article.update(**args)
+
+    db.session.commit()

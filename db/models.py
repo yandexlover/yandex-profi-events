@@ -8,6 +8,13 @@ class BaseModel(db.Model):
 
     __abstract__ = True
 
+    def update(self, **args):
+        """ Обновляет поля модели переданными значениями"""
+
+        for k, v in args.items():
+            if hasattr(self, k):
+                setattr(self, k, v)
+
 
 class Article(BaseModel):
     """ Модель данных статьи """

@@ -40,3 +40,12 @@ def delete_category(category_id: int) -> None:
 
     db.session.delete(category)
     db.session.commit()
+
+
+def edit_category(category_id: int, **args: dict) -> None:
+    """ Обновляет информацию о категории """
+
+    category = get_category(category_id)
+    category.update(**args)
+
+    db.session.commit()
